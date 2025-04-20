@@ -54,10 +54,10 @@ Este proyecto es una API RESTful desarrollada con Laravel (> v8) que permite ges
 ## Coleccion de Postman
 
 Puedes importar la colección de Postman para probar los endpoints de la API.
-[API Fourgen.postman_collection.zip](https://github.com/user-attachments/files/19824249/API.Fourgen.postman_collection.zip)
+- [API Fourgen.postman_collection.zip](https://github.com/user-attachments/files/19824249/API.Fourgen.postman_collection.zip)
 
 ## Usuario de Prueba
 
 Para acceder a los endpoints protegidos por JWT puedes usar el siguiente usuario creado por los seeders:
-    Email: sergioandres.daza.1103@gmail.com
-    Contraseña: 12345678
+- Email: sergioandres.daza.1103@gmail.com
+- Contraseña: 12345678
