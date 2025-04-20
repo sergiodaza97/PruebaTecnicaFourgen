@@ -26,7 +26,7 @@ class PeopleController extends Controller
     /**
      * Mostrar Lista de Personas
      * @OA\Get (
-     *     path="/api/person",
+     *     path="/api/person?per_page={per_page}&page={page}",
      *     tags={"Personas"},
      *     @OA\Response(
      *         response=200,
@@ -73,9 +73,15 @@ class PeopleController extends Controller
      *     )
      * )
      */
-    public function getAllPerson(){
+    public function getAllPerson(Request $request){
         try {
-            $people = $this->peopleRepository->all();
+
+            // Define el número de personas por página
+            $perPage = $request->input('per_page', 15); 
+            
+            // Define el número de la página actual
+            $page = $request->input('page', 1);
+            $people = $this->peopleRepository->all($perPage, $page);
 
             return response()->json([
                 'status' => true,

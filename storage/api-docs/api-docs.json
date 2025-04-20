@@ -153,13 +153,13 @@
                 ]
             }
         },
-        "/api/person": {
+        "/api/person?per_page={per_page}&page={page}": {
             "get": {
                 "tags": [
                     "Personas"
                 ],
                 "summary": "Mostrar Lista de Personas",
-                "operationId": "cdbb8899cb8ecf383fb210fbd7333a3c",
+                "operationId": "b300a3cb110a910dc93e343794903b82",
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -198,101 +198,6 @@
                                                 },
                                                 "type": "object"
                                             }
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Personas"
-                ],
-                "summary": "Registrar la información de una Persona",
-                "operationId": "e4fab739aad9f1f6cc9d6f380cfd2f89",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "": {
-                                        "properties": {
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "email": {
-                                                "type": "string"
-                                            },
-                                            "birthday": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "type": "object"
-                                    }
-                                },
-                                "type": "object",
-                                "example": {
-                                    "name": "Sergio Daza",
-                                    "email": "sergioandres.daza.1103@gmail.com",
-                                    "birthday": "1997-11-25"
-                                }
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "CREATED",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "id": {
-                                            "type": "number",
-                                            "example": 1
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "example": "Sergio Daza"
-                                        },
-                                        "email": {
-                                            "type": "string",
-                                            "example": "sergioandres.daza.1103@gmail.com"
-                                        },
-                                        "birthday": {
-                                            "type": "string",
-                                            "example": "1997-11-25"
-                                        },
-                                        "created_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T00:09:16.000000Z"
-                                        },
-                                        "updated_at": {
-                                            "type": "string",
-                                            "example": "2023-02-23T12:33:45.000000Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "UNPROCESSABLE CONTENT",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Error creating person"
-                                        },
-                                        "errors": {
-                                            "type": "string",
-                                            "example": "Objeto de errores"
                                         }
                                     },
                                     "type": "object"
@@ -500,6 +405,103 @@
                 }
             }
         },
+        "/api/person": {
+            "post": {
+                "tags": [
+                    "Personas"
+                ],
+                "summary": "Registrar la información de una Persona",
+                "operationId": "e4fab739aad9f1f6cc9d6f380cfd2f89",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "birthday": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "Sergio Daza",
+                                    "email": "sergioandres.daza.1103@gmail.com",
+                                    "birthday": "1997-11-25"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "CREATED",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "number",
+                                            "example": 1
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Sergio Daza"
+                                        },
+                                        "email": {
+                                            "type": "string",
+                                            "example": "sergioandres.daza.1103@gmail.com"
+                                        },
+                                        "birthday": {
+                                            "type": "string",
+                                            "example": "1997-11-25"
+                                        },
+                                        "created_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T00:09:16.000000Z"
+                                        },
+                                        "updated_at": {
+                                            "type": "string",
+                                            "example": "2023-02-23T12:33:45.000000Z"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "UNPROCESSABLE CONTENT",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error creating person"
+                                        },
+                                        "errors": {
+                                            "type": "string",
+                                            "example": "Objeto de errores"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/person/{id}/pets": {
             "get": {
                 "tags": [
@@ -560,13 +562,13 @@
                 }
             }
         },
-        "/api/pet": {
+        "/api/pet?page={page}&per_page={per_page}": {
             "get": {
                 "tags": [
                     "Pets"
                 ],
                 "summary": "Obtener todas las mascotas",
-                "operationId": "5eb031c45f88e3872abd535c9f33cfb9",
+                "operationId": "d27b477b6ad4afeaca12f91e69229627",
                 "responses": {
                     "200": {
                         "description": "Lista de todas las mascotas",
@@ -603,64 +605,6 @@
                                         "message": {
                                             "type": "string",
                                             "example": "Error fetching pet"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Pets"
-                ],
-                "summary": "Crear una nueva mascota",
-                "operationId": "6e8419c722e12d6f56f296a172eb086f",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CreatePetRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Mascota creada exitosamente",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "boolean",
-                                            "example": true
-                                        },
-                                        "data": {
-                                            "$ref": "#/components/schemas/Pet"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "Error al crear la mascota",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "boolean",
-                                            "example": false
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Error creating pet"
                                         }
                                     },
                                     "type": "object"
@@ -871,6 +815,66 @@
                                         "message": {
                                             "type": "string",
                                             "example": "Error deleting pet"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/pet": {
+            "post": {
+                "tags": [
+                    "Pets"
+                ],
+                "summary": "Crear una nueva mascota",
+                "operationId": "6e8419c722e12d6f56f296a172eb086f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreatePetRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Mascota creada exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Pet"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error al crear la mascota",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Error creating pet"
                                         }
                                     },
                                     "type": "object"

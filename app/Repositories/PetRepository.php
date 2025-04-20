@@ -13,9 +13,9 @@ class PetRepository {
     {
         $this->model = $model;
     }
-    public function all()
+    public function all($perPage, $page)
     {
-        return $this->model->all();
+        return $this->model->paginate($perPage, ['*'], 'page', $page);
     }
     
     public function find($id)

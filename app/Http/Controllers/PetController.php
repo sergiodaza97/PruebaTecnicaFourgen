@@ -25,7 +25,7 @@ class PetController extends Controller
     
 /**
      * @OA\Get(
-     *     path="/api/pet",
+     *     path="/api/pet?page={page}&per_page={per_page}",
      *     summary="Obtener todas las mascotas",
      *     tags={"Pets"},
      *     @OA\Response(
@@ -47,9 +47,14 @@ class PetController extends Controller
      * )
      */
 
-    public function getAllPets(){
+    public function getAllPets(Request $request){
         try {
-            $pet = $this->petRepository->all();
+            // Define el número de personas por página
+            $perPage = $request->input('per_page', 15); 
+            
+            // Define el número de la página actual
+            $page = $request->input('page', 1);
+            $pet = $this->petRepository->all($perPage, $page);
 
             return response()->json([
                 'status' => true,
